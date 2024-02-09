@@ -8,6 +8,8 @@ public class Game1 : Game
 {
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
+    private Texture2D pacMenu;
+    private Texture2D mazeParts;
 
     public Game1()
     {
@@ -20,6 +22,7 @@ public class Game1 : Game
     {
         // TODO: Add your initialization logic here
 
+
         base.Initialize();
     }
 
@@ -28,6 +31,10 @@ public class Game1 : Game
         _spriteBatch = new SpriteBatch(GraphicsDevice);
 
         // TODO: use this.Content to load your game content here
+        pacMenu = Content.Load<Texture2D>("Content/SpriteSheets/pacMaze.png");
+        mazeParts = Content.Load<Texture2D>("Content/SpriteSheets/pacMenu.png");
+
+
     }
 
     protected override void Update(GameTime gameTime)
@@ -45,6 +52,12 @@ public class Game1 : Game
         GraphicsDevice.Clear(Color.CornflowerBlue);
 
         // TODO: Add your drawing code here
+
+        _spriteBatch.Begin();
+ 
+        _spriteBatch.Draw(pacMenu, new Rectangle(0, 0, 800, 480), Color.White);
+ 
+        _spriteBatch.End();
 
         base.Draw(gameTime);
     }
